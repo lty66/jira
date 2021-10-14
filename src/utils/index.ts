@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value:any)=>value === 0?false:!value
+export const isFalsy = (value:unknown)=>value === 0?false:!value
 // 在函数里改变传入的对象本身是不好的
 export const cleanObject = (object:object)=>{
     const result = {...object}
@@ -19,7 +19,7 @@ export const useMount = (callback:()=>void)=>{
         callback()
     }, [])
 }
-export const useDebounce = (value:any,delay?:number)=>{
+export const useDebounce = (value:unknown,delay?:number)=>{
     const [debouncedValue,setDebouncedValue] = useState(value);
     useEffect(()=>{
         const timeout = setTimeout(()=>setDebouncedValue(value),delay)
