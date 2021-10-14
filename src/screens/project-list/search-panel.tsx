@@ -1,6 +1,22 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-export const SearchPanel = ({users,param,setParam})=>{
+
+export interface User {
+  id:string;
+  name:string;
+  email:string;
+  title:string;
+  organization:string;
+}
+interface SearchaPanelProps {
+  users:User[],
+  param:{
+    name:string;
+    personId:string;
+  },
+  setParam:(param:SearchaPanelProps['param'])=>void;
+}
+export const SearchPanel = ({users,param,setParam}:SearchaPanelProps)=>{
   return <form>
     <div>
       <input type='text' onChange={(e)=>{
